@@ -2,9 +2,10 @@
 
 @section('content')
   <div class="flex-container">
-    <div class="columns m-t-10 m-b-0">
+   
+    <div class="columns m-t-25 m-b-0">
       <div class="column">
-        <h1 class="title is-admin is-4">Add New Blog Post</h1>
+        <h1 class="title is-admin is-4">Add New Book</h1>
       </div>
       <div class="column">
         {{-- <a href="{{route('users.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New User</a> --}}
@@ -12,16 +13,16 @@
     </div>
     <hr class="m-t-0">
 
-    <form action="{{route('posts.store')}}" method="post">
+    <form action="{{route('books.store')}}" method="post">
       {{ csrf_field() }}
       <div class="columns">
         <div class="column is-three-quarters-desktop is-three-quarters-tablet">
           <b-field>
-            <b-input type="text" placeholder="Post Title" size="is-large" v-model="title">
+            <b-input type="text" placeholder="Book Title" size="is-large" v-model="title" name="title">
             </b-input>
           </b-field>
 
-          <slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
+          <slug-widget url="{{url('/')}}" subdirectory="books" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
           <input type="hidden" v-model="slug" name="slug" />
 
           <b-field class="m-t-40">
@@ -37,9 +38,9 @@
               <div class="selected-author">
                 <img src="https://placehold.it/50x50"/>
                 <div class="author">
-                  <h4>Alex Curtis</h4>
+                  <h4>Peter Law</h4>
                   <p class="subtitle">
-                    (jacurtis)
+                    (scmclibrary)
                   </p>
                 </div>
               </div>

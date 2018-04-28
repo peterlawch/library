@@ -11,9 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('book/{slug}/', ['as' => 'book.single', 'uses' => 'BookController@getSingle'])
+        ->where('slug', '[\w\d\-\_]+');
+Route::get('book', ['uses' => 'BookController@getIndex', 'as'=> 'book.index']);
+Route::get('contact', 'PagesController@getContact');
+Route::get('about', 'PagesController@getAbout');
+Route::get('/', 'PagesController@getIndex');
+
+
+//Route::get('about', function () {
+//  return view('about');
+//});
+
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+
 
 Auth::routes();
 
@@ -23,7 +38,8 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/users', 'UserController');
   Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
-  Route::resource('/posts', 'PostController');
+  Route::resource('/books', 'PostController');
+  Route::resource('categories', 'CategoryController', ['except' => 'create']);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

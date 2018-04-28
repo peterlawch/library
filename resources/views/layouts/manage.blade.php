@@ -8,11 +8,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>DevMarketer - MANAGEMENT</title>
+    <title>LIBRARY - MANAGEMENT</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    {{ Html::style('css/styles.css') }}
+    
+
     @yield('styles')
+
 </head>
 <body>
 

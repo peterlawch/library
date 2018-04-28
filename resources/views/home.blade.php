@@ -13,6 +13,28 @@
                     {{-- {{ dd(json_encode(LaraFlash::allByPriority())) }} --}}
                   </pre>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="jumbotron">
+                            <h1>Welcome to SCMC LIBRARY</h1>
+                            <p class="lead">Thank you for visiting.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        
+                        <div class="col-sm-6">
+                            {!! Html::linkRoute('categories.index', 'Categories', array('class' => 'btn btn-primary btn-block')) !!}
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            <div class="col-md-3 col-md-offset-1">
+                <h2>Sidebar</h2>
+            </div>  
             </div>
         </div>
     </div>

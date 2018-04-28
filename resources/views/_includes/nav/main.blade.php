@@ -1,8 +1,10 @@
-<nav class="navbar has-shadow" >
+<header>
+
+<div class="navbar has-shadow navbar-fixed-top" >
   <div class="container">
-    <div class="navbar-brand">
+    <div class="navbar-header">
       <a class="navbar-item is-paddingless brand-item" href="{{route('home')}}">
-        <img src="{{asset('images/devmarketer-logo.png')}}" alt="DevMarketer logo">
+        <img src="{{asset('images/logo.png')}}" alt="DevMarketer logo">
       </a>
 
       @if (Request::segment(1) == "manage")
@@ -13,18 +15,19 @@
         </a>
       @endif
 
-      <button class="button navbar-burger">
-       <span></span>
-       <span></span>
-       <span></span>
+            <button class="button navbar-burger navbar-toggle" data-toggle="collapse" data-target="#navbar">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
      </button>
     </div>
-    <div class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item is-tab is-active">Learn</a>
-        <a class="navbar-item is-tab">Discuss</a>
-        <a class="navbar-item is-tab">Share</a>
-      </div> <!-- end of .navbar-start -->
+    <div class="navbar-menu collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav">
+        <li class="navbar-item is-tab is-active">Learn</li>
+        <li class="navbar-item is-tab">Discuss</li>
+        <li class="navbar-item is-tab">Share</li>
+      </ul> <!-- end of .navbar-start -->
 
 
       <div class="navbar-end nav-menu" style="overflow: visible">
@@ -51,6 +54,11 @@
                   <i class="fa fa-fw fa-cog m-r-5"></i>
                 </span>Manage
               </a>
+              <a href="{{route('categories.index')}}" class="navbar-item">
+                <span class="icon">
+                  <i class="fa fa-fw fa-cog m-r-5"></i>
+                </span>Categories
+              </a>
               <hr class="navbar-divider">
               <a href="{{route('logout')}}" class="navbar-item" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
@@ -67,4 +75,7 @@
     </div>
 
   </div>
-</nav>
+</div>
+</header>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use LaraFlash;
+use Post;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,8 @@ class HomeController extends Controller
       LaraFlash::snackbar('Click to continue')->priority(3);
       LaraFlash::success("Yay it worked!");
       LaraFlash::danger('Oops Something went wrong!');
+
+
         return view('home');
     }
 }

@@ -84,7 +84,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    SCMC LIBRARY
+                    ABOUT US
                 </div>
             </div>
         </div>

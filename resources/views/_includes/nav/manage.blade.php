@@ -11,7 +11,7 @@
       Content
     </p>
     <ul class="menu-list">
-      <li><a href="{{route('posts.index')}}" class="{{Nav::isResource('posts', 2)}}">Blog Posts</a></li>
+      <li><a href="{{route('books.index')}}" class="{{Nav::isResource('posts', 2)}}">Managing Books</a></li>
       {{-- <li>
         <a class="has-submenu {{Nav::hasSegment(['roles', 'permissions'], 2)}}">Roles &amp; Permissions</a>
         <ul class="submenu">
