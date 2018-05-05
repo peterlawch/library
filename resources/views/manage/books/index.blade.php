@@ -1,7 +1,9 @@
 @extends('layouts.manage')
 
 @section('content')
+
   <div class="flex-container">
+  
   @if (Session::has('success'))
             <div class="alert alert-success" role="alert">
             <strong>Success:</strong> {{ Session::get('success') }}
@@ -27,6 +29,9 @@
       <div class="col-md-2">
         <a href="{{ route('books.create') }}" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Create New Book</a>
       </div>
+      <div class="column">
+          <a href="{{route('books.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New Book</a>
+      </div>
       <hr>
       <div class="col-md-12">
         <hr>
@@ -39,7 +44,7 @@
           <thead>
             <th>#</th>
             <th>Title</th>
-            <th>Body</th>
+            <th>Description</th>
             <th>Created At</th>
             <th></th>
           </thead>

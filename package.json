@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "dev-marketer",
-  "description": "DevMarketer video tutorial series Building an Advanced Blog/CMS",
+  "name": "scmc",
+  "description": "Library",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {

@@ -5,13 +5,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading lead">Dashboard</div>
+                
 
                 <div class="panel-body">
                     {{-- You are logged in! --}}
-                  <pre>
+                  <!--<pre>
                     {{-- {{ dd(json_encode(LaraFlash::allByPriority())) }} --}}
-                  </pre>
+                  </pre>-->
                 </div>
 
                 <div class="row">
@@ -25,10 +26,16 @@
 
                 <div class="row">
                     <div class="col-md-8">
-                        
-                        <div class="col-sm-6">
-                            {!! Html::linkRoute('categories.index', 'Categories', array('class' => 'btn btn-primary btn-block')) !!}
+                        <div class="column">
+                            <a href="{{route('books.create')}}" class="btn btn-success btn-block"><i class="fa fa-user-plus m-r-10"></i> Create New Book</a>
                         </div>
+                        <div class="column">
+                            <a href="{{route('categories.index')}}" class="btn btn-success btn-block"><i class="fa fa-user-plus m-r-10"></i> Create New Category</a>
+                        </div>
+                                        
+                        <!--<div class="col-sm-6">
+                            {!! Html::linkRoute('categories.index', 'Categories', array('class' => 'btn btn-primary btn-block')) !!}
+                        </div>-->
                     </div>
                     <hr>
                 </div>

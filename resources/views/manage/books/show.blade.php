@@ -1,6 +1,7 @@
 @extends('layouts.manage')
 
 @section('content')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <div class="flex-container">
     <div class="column">
       <div class="col-md-8">
