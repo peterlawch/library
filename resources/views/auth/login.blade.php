@@ -6,7 +6,7 @@
   <div class="column col-6 m-t-100">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="title">Create</h1>
+        <h1 class="title">Log In</h1>
 
         <form action="{{route('login')}}" method="POST" role="form">
           {{csrf_field()}}

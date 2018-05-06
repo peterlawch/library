@@ -29,9 +29,9 @@
       <div class="col-md-2">
         <a href="{{ route('books.create') }}" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Create New Book</a>
       </div>
-      <div class="column">
+      <!--<div class="column">
           <a href="{{route('books.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New Book</a>
-      </div>
+      </div>-->
       <hr>
       <div class="col-md-12">
         <hr>
