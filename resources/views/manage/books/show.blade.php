@@ -22,10 +22,13 @@
                 </ul>
             </div>
         @endif
+
+        <img src="{{ asset('images/' . $post->image) }}" height="400" width="200"/>
         
         <h1 class="title">This is the Book created</h1>
         <h1>{{ $post->title }}</h1>
         <p class="lead">{{ $post->body }}</p>
+        
         
       </div>
       <div class="col-md-4">
@@ -39,6 +42,11 @@
             <dl class="dl-horizontal">
                 <label>Catgory:</label>
                 <p>{{ $post->category->name }}</p>
+            </dl>
+
+            <dl class="dl-horizontal">
+                <label>Author:</label>
+                <p>{{ $post->author->name }}</p>
             </dl>
 
             <dl class="dl-horizontal">

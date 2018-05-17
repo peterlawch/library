@@ -78,6 +78,13 @@
                   @endforeach            
               </select>
 
+              {{ Form::label('author_id', 'Author: ') }}
+              <select class="form-control" name="author_id">
+                  @foreach($authors as $author)
+                    <option value="{{ $author->id }}">{{ $author->name }}</option>
+                  @endforeach            
+              </select>
+
               {{ Form::label('featured_image', 'Upload Featured Image:') }}
               {{ Form::file('featured_image') }}
 

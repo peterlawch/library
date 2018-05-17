@@ -9,6 +9,7 @@
             <p>{{ $post->body }}</p>
             <hr>
             <p>Category: {{ $post->category->name }}</p>
+            <p>Author: {{ $post->author->name }}</p>
         </div>
     </div>
 

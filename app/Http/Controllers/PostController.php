@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Session;
 use App\Category;
+use App\Author;
 use Image;
 use Purifier;
 use Storage;
@@ -40,7 +41,8 @@ class PostController extends Controller
   public function create()
   {
       $categories = Category::all();
-      return view('manage.books.create')->withCategories($categories);
+      $authors = Author::all();
+      return view('manage.books.create')->withCategories($categories)->withAuthors($authors);
   }
 
   /**
@@ -67,6 +69,7 @@ class PostController extends Controller
     $post->title = $request->title;
     $post->slug = $request->slug;
     $post->category_id = $request->category_id;
+    $post->author_id = $request->author_id;
     $post->body = $request->body;
 
     // Save our image
@@ -109,14 +112,20 @@ class PostController extends Controller
     // find the post in the database and save as a variable
     $post = Post::find($id);
     $categories = Category::all();
+    $authors = Author::all();
     $cats = array();
+    $auts = array();
     
     foreach($categories as $category) {
       $cats[$category->id] = $category->name;
     }
 
+    foreach($authors as $author) {
+      $auts[$author->id] = $author->name;
+    }
+
     // return the view and pass in the var we previously created
-    return view('manage.books.edit')->withPost($post)->withCategories($cats);
+    return view('manage.books.edit')->withPost($post)->withCategories($cats)->withAuthors($auts);
   }
 
   /**
@@ -139,6 +148,7 @@ class PostController extends Controller
       'body' => 'required',
       'featured_image' => 'image'
     ));
+
  
 
     // Save the data to the database
@@ -147,6 +157,7 @@ class PostController extends Controller
     $post->title = $request->input('title');
     $post->slug = $request->input('slug');
     $post->category_id = $request->input('category_id');
+    $post->author_id = $request->input('author_id');
     $post->body = $request->input('body');
 
     if ($request->hasFile('featured_image')) {
@@ -172,7 +183,7 @@ class PostController extends Controller
     Session::flash('success', 'This book detail was successfully updated');
 
     // redirect with flash data to books.show
-    return redirect()->route('manage.books.show', $post->id);
+    return redirect()->route('books.show', $post->id);
   }
 
   /**
@@ -185,6 +196,8 @@ class PostController extends Controller
   {
       //
       $post = POST::find($id);
+
+      Storage::delete($post->image);
 
       $post->delete();
 

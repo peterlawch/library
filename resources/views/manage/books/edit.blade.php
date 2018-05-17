@@ -5,7 +5,7 @@
     <div class="flex-container">
     
         <div class="column">
-        {!! Form::model($post, ['route' => ['books.update', $post->id], 'method' => 'PUT', 'fiiles' => true ]) !!}
+        {!! Form::model($post, ['route' => ['books.update', $post->id], 'method' => 'PUT', 'files' => true ]) !!}
         <div class="col-md-8">
             {{ Form::label('title', 'Title:') }}            
             {{ Form::text('title', null, ["class" => 'form-control input-lg']) }}
@@ -15,6 +15,9 @@
 
             {{ Form::label('category_id', 'Category: ', ['class' => 'form-spacing-top']) }}
             {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+
+            {{ Form::label('author_id', 'Author: ', ['class' => 'form-spacing-top']) }}
+            {{ Form::select('author_id', $authors, null, ['class' => 'form-control']) }}
 
             {{ Form::label('featured_image', 'Update Featured Image:', ['class' => 'form-spacing-top']) }}
             {{ Form::file('featured_image') }}
