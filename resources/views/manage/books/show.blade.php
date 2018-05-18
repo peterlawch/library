@@ -79,6 +79,11 @@
                     {{ Html::linkRoute('books.index', '<< See All Books', [], ['class' => 'btn btn-default btn-block btn-h1-spacing']) }}
                 </div>
             </div>
+            <div class=" text-center">
+                {!! QrCode::size(200)->generate(Request::url()); !!}
+                <p>Scan me to return to the original page.</p>
+            </div>
+            
         
         </div>
         

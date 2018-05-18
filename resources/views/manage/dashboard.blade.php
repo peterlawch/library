@@ -21,7 +21,9 @@
                                 {!! Html::linkRoute('categories.index', 'Categories', array('class' => 'btn btn-primary btn-block')) !!}
                             </div>-->
                         </div>
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>
