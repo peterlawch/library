@@ -10,7 +10,21 @@
             <hr>
             <p>Category: {{ $post->category->name }}</p>
             <p>Author: {{ $post->author->name }}</p>
+            <p>Publisher: {{ $post->publisher->name }}</p>
         </div>
+        <div class="col-md-4 col-md-offset-2">
+        <div class="well">
+
+            <div class="visible-print-block-inline text-center hidden">
+                {!! QrCode::format('png')->size(200)->generate(Request::url(), '../public/images/' . $post->slug . '.png'); !!}
+                <!--{!! QrCode::format('png')->merge('../public/images/Methodist_Church.png', .3, true)->generate(Request::url()); !!}-->
+                <p>{!! $post->title !!}</p>
+            </div>
+            
+            
+        
+        </div>
+        
     </div>
 
 @endsection

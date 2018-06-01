@@ -3,37 +3,41 @@
 @section('content')
 
 <div class="well">
-  <div class="column col-6 m-t-100">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="title">{{ __('file.login') }}</h1>
+  <div class="col-md-5 col-md-offset-2 m-t-100">
+    <div class="panel panel-default">
+      <div class="panel-heading lead">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="title">{{ __('file.login') }}</h1>
+        
+            <form action="{{route('login')}}" method="POST" role="form">
+              {{csrf_field()}}
+              <div class="form-group">
+                <label for="email" class="control-label">{{ __('file.email') }}</label>
+                <p class="control">
+                  <input class="form-control {{$errors->has('email') ? 'is-danger' : ''}}" type="text" name="email" id="email" placeholder="name@example.com" value="{{old('email')}}">
+                </p>
+                @if ($errors->has('email'))
+                  <p class="help is-danger">{{$errors->first('email')}}</p>
+                @endif
+              </div>
+              <div class="form-group">
+                <label for="password" class="control-label">{{ __('file.password') }}</label>
+                <p class="control">
+                  <input class="form-control {{$errors->has('password') ? 'is-danger' : ''}}" type="password" name="password" id="password">
+                </p>
+                @if ($errors->has('password'))
+                  <p class="help is-danger">{{$errors->first('password')}}</p>
+                @endif
 
-        <form action="{{route('login')}}" method="POST" role="form">
-          {{csrf_field()}}
-          <div class="form-group">
-            <label for="email" class="control-label">{{ __('file.email') }}</label>
-            <p class="control">
-              <input class="form-control {{$errors->has('email') ? 'is-danger' : ''}}" type="text" name="email" id="email" placeholder="name@example.com" value="{{old('email')}}">
-            </p>
-            @if ($errors->has('email'))
-              <p class="help is-danger">{{$errors->first('email')}}</p>
-            @endif
+              </div>
+
+              <b-checkbox name="remember" class="m-t-20">Remember Me</b-checkbox>
+
+              <button class="btn btn-success btn-block">{{ __('file.login') }}</button>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="password" class="control-label">{{ __('file.password') }}</label>
-            <p class="control">
-              <input class="form-control {{$errors->has('password') ? 'is-danger' : ''}}" type="password" name="password" id="password">
-            </p>
-            @if ($errors->has('password'))
-              <p class="help is-danger">{{$errors->first('password')}}</p>
-            @endif
-
-          </div>
-
-          <b-checkbox name="remember" class="m-t-20">Remember Me</b-checkbox>
-
-          <button class="btn btn-success btn-block">{{ __('file.login') }}</button>
-        </form>
+        </div>
       </div> <!-- end of .card-content -->
     </div> <!-- end of .card -->
     <h5 class="has-text-centered m-t-20"><a href="{{route('password.request')}}" class="is-muted">Forgot Your Password?</a></h5>

@@ -57,8 +57,8 @@
 
 <div class="columns">
   <div class="column col-6 m-t-100">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="panel-content">
+      <div class="panel-header">
         <h1 class="title">Create Book</h1>
 
         <div class="row">

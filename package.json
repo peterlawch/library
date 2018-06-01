@@ -27,6 +27,8 @@
     "vue": "^2.5.16"
   },
   "dependencies": {
+    "instascan": "^1.0.0",
+    "vue-qrcode-reader": "^0.7.3",
     "vue-template-compiler": "^2.5.3"
   }
 }

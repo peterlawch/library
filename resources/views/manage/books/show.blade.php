@@ -23,7 +23,7 @@
             </div>
         @endif
 
-        <img src="{{ asset('images/' . $post->image) }}" height="400" width="200"/>
+        <img class="img-fluid" src="{{ asset('images/' . $post->image) }}" />
         
         <h1 class="title">This is the Book created</h1>
         <h1>{{ $post->title }}</h1>
@@ -47,6 +47,11 @@
             <dl class="dl-horizontal">
                 <label>Author:</label>
                 <p>{{ $post->author->name }}</p>
+            </dl>
+
+            <dl class="dl-horizontal">
+                <label>Publisher:</label>
+                <p>{{ $post->publisher->name }}</p>
             </dl>
 
             <dl class="dl-horizontal">
@@ -79,10 +84,19 @@
                     {{ Html::linkRoute('books.index', '<< See All Books', [], ['class' => 'btn btn-default btn-block btn-h1-spacing']) }}
                 </div>
             </div>
-            <div class=" text-center">
+            <div class="well">
+
+            <div class="visible-print-block-inline text-center">
+                <!--{!! QrCode::format('png')->size(200)->merge('../public/images/Methodist_Church.png', .3, true)->generate(Request::url(), '../public/images/qrcode.png'); !!}-->
+                <!--{!! QrCode::format('png')->generate(Request::url()); !!}-->
                 {!! QrCode::size(200)->generate(Request::url()); !!}
-                <p>Scan me to return to the original page.</p>
+                <p>{!! $post->title !!}</p>
             </div>
+            
+            
+        
+        </div>
+            
             
         
         </div>

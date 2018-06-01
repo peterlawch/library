@@ -7,6 +7,7 @@ use App\Post;
 use Session;
 use App\Category;
 use App\Author;
+use App\Publisher;
 use Image;
 use Purifier;
 use Storage;
@@ -42,7 +43,8 @@ class PostController extends Controller
   {
       $categories = Category::all();
       $authors = Author::all();
-      return view('manage.books.create')->withCategories($categories)->withAuthors($authors);
+      $publishers = Publisher::all();
+      return view('manage.books.create')->withCategories($categories)->withAuthors($authors)->withPublishers($publishers);
   }
 
   /**
@@ -70,6 +72,7 @@ class PostController extends Controller
     $post->slug = $request->slug;
     $post->category_id = $request->category_id;
     $post->author_id = $request->author_id;
+    $post->publisher_id = $request->publisher_id;
     $post->body = $request->body;
 
     // Save our image
@@ -113,8 +116,10 @@ class PostController extends Controller
     $post = Post::find($id);
     $categories = Category::all();
     $authors = Author::all();
+    $publishers = Publisher::all();
     $cats = array();
     $auts = array();
+    $pubs = array();
     
     foreach($categories as $category) {
       $cats[$category->id] = $category->name;
@@ -124,8 +129,12 @@ class PostController extends Controller
       $auts[$author->id] = $author->name;
     }
 
+    foreach($publishers as $publisher) {
+      $pubs[$publisher->id] = $publisher->name;
+    }
+
     // return the view and pass in the var we previously created
-    return view('manage.books.edit')->withPost($post)->withCategories($cats)->withAuthors($auts);
+    return view('manage.books.edit')->withPost($post)->withCategories($cats)->withAuthors($auts)->withPublishers($pubs);
   }
 
   /**
@@ -158,6 +167,7 @@ class PostController extends Controller
     $post->slug = $request->input('slug');
     $post->category_id = $request->input('category_id');
     $post->author_id = $request->input('author_id');
+    $post->publisher_id = $request->input('publisher_id');
     $post->body = $request->input('body');
 
     if ($request->hasFile('featured_image')) {

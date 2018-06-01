@@ -19,6 +19,9 @@
             {{ Form::label('author_id', 'Author: ', ['class' => 'form-spacing-top']) }}
             {{ Form::select('author_id', $authors, null, ['class' => 'form-control']) }}
 
+            {{ Form::label('publisher_id', 'Publisher: ', ['class' => 'form-spacing-top']) }}
+            {{ Form::select('publisher_id', $publishers, null, ['class' => 'form-control']) }}
+
             {{ Form::label('featured_image', 'Update Featured Image:', ['class' => 'form-spacing-top']) }}
             {{ Form::file('featured_image') }}
 

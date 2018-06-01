@@ -54,6 +54,7 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/books', 'PostController');
   Route::resource('categories', 'CategoryController', ['except' => 'create']);
   Route::resource('authors', 'AuthorController', ['except' => ['create']]);
+  Route::resource('publishers', 'PublisherController', ['except' => ['create']]);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

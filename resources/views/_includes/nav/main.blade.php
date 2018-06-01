@@ -45,9 +45,10 @@
                       <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value = "Go">
                     </form>
                   </li>
-              </ul>
+              
             <div class="nav navbar-nav is-right col-6 m-t-5" style="overflow: visible">
-<!--            <form class="form-inline">
+            <!--            
+            <form class="form-inline">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form> -->
@@ -85,6 +86,11 @@
                     <i class="fa fa-fw fa-cog m-r-5"></i>
                   </span>Authors
                 </a>
+                <a href="{{route('publishers.index')}}" class="navbar-item">
+                  <span class="icon">
+                    <i class="fa fa-fw fa-cog m-r-5"></i>
+                  </span>Publishers
+                </a>
                 <hr class="navbar-divider">
                 <a href="{{route('logout')}}" class="navbar-item" onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -96,9 +102,10 @@
                 @include('_includes.forms.logout')
               </div>
             </div>
+            
           @endguest
           </div>
-          
+          </ul>
         </div>
     </nav>
 </div>
